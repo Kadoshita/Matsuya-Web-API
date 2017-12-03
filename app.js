@@ -5,8 +5,6 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var index = require('./routes/index');
-
 //APIv1読み込み
 var v1random = require('./api/v1/random');
 
@@ -28,8 +26,6 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
-app.use('/', index);
 
 //APIv1実装
 app.use('/v1/random', v1random);
